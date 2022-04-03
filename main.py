@@ -13,7 +13,7 @@ def index():
 
 
 @app.route("/candidate/<int:uid>")
-def profile(uid):  # ??? Откуда uid?
+def profile(uid):
     candidate = get_candidate(uid)
     return render_template('profile.html', candidate=candidate)
 
@@ -25,6 +25,7 @@ def search(name):
     return render_template('search.html', candidates=candidates,
                            candidates_len=len(candidates))
 
+
 @app.route("/skills/<skill>")
 def skills(skill):
     candidates = get_candidates_by_skill(skill)
@@ -33,4 +34,4 @@ def skills(skill):
                            candidates_len=len(candidates))
 
 
-app.run(debug=True)
+app.run()
