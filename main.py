@@ -12,13 +12,13 @@ def index():
     return render_template('index.html', candidates=data)
 
 
-@app.route("/candidate/<int:uid>")
+@app.route("/candidate/<int:uid>/")
 def profile(uid):
     candidate = get_candidate(uid)
     return render_template('profile.html', candidate=candidate)
 
 
-@app.route("/search/<name>")
+@app.route("/search/<name>/")
 def search(name):
     candidates = get_candidates_by_name(name)
     print(candidates)
@@ -26,7 +26,7 @@ def search(name):
                            candidates_len=len(candidates))
 
 
-@app.route("/skills/<skill>")
+@app.route("/skills/<skill>/")
 def skills(skill):
     candidates = get_candidates_by_skill(skill)
     print(candidates)
@@ -34,4 +34,5 @@ def skills(skill):
                            candidates_len=len(candidates))
 
 
-app.run()
+if __name__ == '__main__':
+    app.run()
